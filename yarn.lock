@@ -1674,6 +1674,11 @@
     "@ethersproject/properties" "^5.2.0"
     "@ethersproject/strings" "^5.2.0"
 
+"@fontsource/syne@^4.5.3":
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/syne/-/syne-4.5.3.tgz#68618a5ec93d3aa0a94122a6b53ed762203ffbed"
+  integrity sha512-LWw3WbDqhhh3Jlu4uyqMSAQl4YQxYOnJtZIh7uRw4EsVDcQUXQ0oy2ci/1rBqMwu8dg2MVUGyYIMe9SE+goJSQ==
+
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.2.tgz#ab7043b037e68b722f93f376afb05e85c0699523"
