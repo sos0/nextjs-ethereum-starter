@@ -5,6 +5,7 @@ import {
   AlertTitle,
   Box,
   Button,
+  Center,
   Container,
   Flex,
   Image,
@@ -67,10 +68,19 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
   }
 
   return (
-    <>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      h="100vh"
+      bgGradient={[
+        'linear(to-tr, teal.300, yellow.400)',
+        'linear(to-t, blue.200, teal.500)',
+        'linear(to-b, orange.100, purple.300)',
+      ]}>
       <Head customMeta={customMeta} />
-      <header>
-        <Container maxWidth="container.xl">
+      <Container maxWidth="container.xl" flex="initial">
+        <header>
           <SimpleGrid
             columns={[1, 1, 1, 2]}
             alignItems="center"
@@ -115,48 +125,51 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
               <ConnectWallet />
             )}
           </SimpleGrid>
-        </Container>
-      </header>
-      <main>
-        <Container maxWidth="container.xl">
+        </header>
+      </Container>
+      <Container maxWidth="container.xl" flex="auto">
+        <Center>
+          <main>
           {children}
-          {notifications.map((notification) => {
-            if (notification.type === 'walletConnected') {
-              return null
-            }
-            return (
-              <Alert
-                key={notification.id}
-                status="success"
-                position="fixed"
-                bottom="8"
-                right="8"
-                width="400px"
-              >
-                <AlertIcon />
-                <Box>
-                  <AlertTitle>
-                    {TRANSACTION_TITLES[notification.type]}
-                  </AlertTitle>
-                  <AlertDescription overflow="hidden">
-                    Transaction Hash:{' '}
-                    {truncateHash(notification.transaction.hash, 61)}
-                  </AlertDescription>
-                </Box>
-              </Alert>
-            )
-          })}
-        </Container>
-      </main>
-      <footer>
-        <Container mt="8" py="8" maxWidth="container.xl">
-          <Text>
-            Built by{' '}
-            <Link href="https://twitter.com/hunterhchang">Hunter Chang</Link>
-          </Text>
-        </Container>
-      </footer>
-    </>
+          </main>
+        </Center>
+        {notifications.map((notification) => {
+          if (notification.type === 'walletConnected') {
+            return null
+          }
+          return (
+            <Alert
+              key={notification.id}
+              status="success"
+              position="fixed"
+              bottom="8"
+              right="8"
+              width="400px"
+            >
+              <AlertIcon />
+              <Box>
+                <AlertTitle>
+                  {TRANSACTION_TITLES[notification.type]}
+                </AlertTitle>
+                <AlertDescription overflow="hidden">
+                  Transaction Hash:{' '}
+                  {truncateHash(notification.transaction.hash, 61)}
+                </AlertDescription>
+              </Box>
+            </Alert>
+          )
+        })}
+      </Container>
+      <Container py="8" maxWidth="container.xl" flex="initial">
+        <footer>
+          <Center>
+            <Text>
+              MouseBelt Engineering
+            </Text>
+          </Center>
+        </footer>
+      </Container>
+    </Box>
   )
 }
 

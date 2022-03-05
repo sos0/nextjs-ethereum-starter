@@ -26,13 +26,13 @@ function ConnectWallet(): JSX.Element {
         textAlign={['left', null, null, 'right']}
       >
         <Button colorScheme="teal" variant="outline" onClick={onOpen}>
-          Connect to a wallet
+          Connect Wallet
         </Button>
       </Box>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Connect to a wallet</ModalHeader>
+          <ModalHeader>Connect Wallet</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Button
